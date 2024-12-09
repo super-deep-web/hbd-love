@@ -10,6 +10,28 @@
   transform-style: preserve-3d;
 }
 
+.gift-container {
+  width: 18rem !important;
+  height: 18rem !important;
+}
+
+@media (min-width: 640px) {
+  .gift-container {
+    width: 18rem !important;
+    height: 18rem !important;
+  }
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .gift-container {
+    width: 20rem !important;
+    height: 20rem !important;
+  }
+}
+
 @keyframes float {
   0%,
   100% {

@@ -9,7 +9,7 @@ const messages = [
     author: "Tu principe",
   },
   {
-    text: "En este día tan especial, te tengo que recordar lo guapísima que eres, lo importante que eres para muchos, para tu familia, para mi, sobre todo par ami jejeje, que en serio espero poder compartir muchos días más como este contigo.",
+    text: "En este día tan especial, te tengo que recordar lo guapísima que eres, lo importante que eres para muchos, para tu familia, para mi, sobre todo para mi jejeje, que en serio espero poder compartir muchos días más como este contigo.",
     author: "Con cariño, el amor de tu vida",
   },
   {
@@ -38,47 +38,91 @@ export default function MessagesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 pb-20">
-      <main className="container mx-auto px-4 py-8">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600">
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(to bottom right, #fdf2f8, #f3e8ff)",
+        paddingBottom: "5rem",
+      }}
+    >
+      <main
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          padding: "2rem 1rem",
+        }}
+      >
+        <motion.div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              fontSize: "clamp(1.875rem, 5vw, 3rem)",
+              fontWeight: "bold",
+              background: "linear-gradient(to right, #db2777, #9333ea)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             Mensajes Especiales
-          </h1>
-          <p className="text-gray-600 mt-2">
-            Para una niña única y tierna como tú
-          </p>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            style={{ color: "#4b5563", marginTop: "0.5rem" }}
+          >
+            Palabras llenas de cariño para ti
+          </motion.p>
         </motion.div>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid gap-6 max-w-2xl mx-auto"
+          style={{
+            display: "grid",
+            gap: "1.5rem",
+            maxWidth: "42rem",
+            margin: "0 auto",
+          }}
         >
           {messages.map((message, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-md p-6"
+              style={{
+                background: "rgba(255, 255, 255, 0.8)",
+                backdropFilter: "blur(4px)",
+                borderRadius: "1rem",
+                padding: "1.5rem",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              }}
             >
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2 * index }}
-                className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+                style={{
+                  width: "3rem",
+                  height: "3rem",
+                  background: "#fce7f3",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 1rem",
+                }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-pink-600"
+                  width="24"
+                  height="24"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  stroke="#db2777"
                 >
                   <path
                     strokeLinecap="round"
@@ -88,12 +132,26 @@ export default function MessagesPage() {
                   />
                 </svg>
               </motion.div>
-              <p className="text-gray-700 text-lg mb-4 text-center italic">
+              <motion.p
+                style={{
+                  color: "#374151",
+                  fontSize: "1.125rem",
+                  marginBottom: "1rem",
+                  textAlign: "center",
+                  fontStyle: "italic",
+                }}
+              >
                 {message.text}
-              </p>
-              <p className="text-pink-600 font-medium text-center">
+              </motion.p>
+              <motion.p
+                style={{
+                  color: "#db2777",
+                  fontWeight: 500,
+                  textAlign: "center",
+                }}
+              >
                 {message.author}
-              </p>
+              </motion.p>
             </motion.div>
           ))}
         </motion.div>
