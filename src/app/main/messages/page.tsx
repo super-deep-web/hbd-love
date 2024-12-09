@@ -89,7 +89,7 @@ export default function MessagesPage() {
                 </svg>
               </motion.div>
               <p className="text-gray-700 text-lg mb-4 text-center italic">
-                "{message.text}"
+                {message.text}
               </p>
               <p className="text-pink-600 font-medium text-center">
                 {message.author}
